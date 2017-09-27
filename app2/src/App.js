@@ -29,6 +29,14 @@ class App extends Component {
     e.preventDefault();
   }
 
+  removeProduct(productName) {
+    var products = this.state.products.filter(p => p.name !== productName);
+
+    this.setState({
+      products: products
+    });
+  }
+
   render() {
     return <div className="App">
       <div className="App-header">

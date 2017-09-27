@@ -7,10 +7,13 @@ import Products from './Products.js'
 class App extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       products: data.products
     };
+
     this.addHandler = this.addHandler.bind(this);
+    this.removeProduct = this.removeProduct.bind(this);
   }
 
   addHandler(e) {
@@ -54,7 +57,7 @@ class App extends Component {
         </form>
       </div>
       <div className='products-container'>
-        <Products products={this.state.products} />
+        <Products products={this.state.products} removeProduct={this.removeProduct} />
       </div>
     </div>
   }

@@ -12,11 +12,11 @@ class App extends Component {
       products: data.products
     };
 
-    this.addHandler = this.addHandler.bind(this);
+    this.addProduct = this.addProduct.bind(this);
     this.removeProduct = this.removeProduct.bind(this);
   }
 
-  addHandler(e) {
+  addProduct(e) {
     var nameNode = e.target[0];
     var name = nameNode.value;
 
@@ -53,14 +53,20 @@ class App extends Component {
         <h2>Kata 2- Add and remove objects</h2>
       </div>
       <div className='add-product'>
-        <form onSubmit={this.addHandler}>
-          <label htmlFor="name">Product Name</label>
-          <input id="name" type="text" minLength="3" required />
+        <form onSubmit={this.addProduct}>
+          <p>
+            <label htmlFor="name">Product Name</label>
+            <input id="name" type="text" minLength="3" required />
+          </p>
 
-          <label htmlFor="description">Description</label>
-          <input id="description" type="text" />
+          <p>
+            <label htmlFor="description">Description</label>
+            <input id="description" type="text" />
+          </p>
 
-          <button type="submit">Add Product</button>
+          <p>
+            <button type="submit">Add Product</button>
+          </p>
         </form>
       </div>
       <div className='products-container'>

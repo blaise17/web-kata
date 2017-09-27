@@ -4,11 +4,6 @@ import './Products.css'
 class Product extends Component{
     constructor(props) {
         super(props);
-        this.removeProduct = this.removeProduct.bind(this);
-    }
-    
-    removeProduct() {
-        this.props.removeProduct(this.props.product.name);
     }
     
     render(){
@@ -18,7 +13,7 @@ class Product extends Component{
                 <div className='desc'>{this.props.product.description}</div>
             </div>
             <div className='actions'>
-                <div className='remove' onClick={this.removeProduct}>x</div>
+                <div className='remove' onClick={() => this.props.removeProduct(this.props.product.name)}>x</div>
             </div>
         </div>
     }

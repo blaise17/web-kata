@@ -7,7 +7,7 @@ import Products from './Products.js'
 class App extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       products: data.products
     };
@@ -17,8 +17,12 @@ class App extends Component {
   }
 
   addHandler(e) {
-    var name = e.target[0].value;
-    var description = e.target[1].value;
+    var nameNode = e.target[0];
+    var name = nameNode.value;
+
+    var descriptionNode = e.target[1];
+    var description = descriptionNode.value;
+
     var product = {
       name: name,
       description: description
@@ -28,6 +32,9 @@ class App extends Component {
     this.setState({
       products: products
     });
+
+    nameNode.value = "";
+    descriptionNode.value = "";
 
     e.preventDefault();
   }
@@ -48,7 +55,7 @@ class App extends Component {
       <div className='add-product'>
         <form onSubmit={this.addHandler}>
           <label htmlFor="name">Product Name</label>
-          <input id="name" type="text" />
+          <input id="name" type="text" minLength="3" required />
 
           <label htmlFor="description">Description</label>
           <input id="description" type="text" />

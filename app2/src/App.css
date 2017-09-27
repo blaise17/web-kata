@@ -17,3 +17,11 @@
   display: flex;
   justify-content: center;
 }
+
+label {
+  width: 120px;
+  display: inline-block;
+}
+button {
+  margin-left: 120px;
+}
